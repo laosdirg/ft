@@ -10,6 +10,9 @@ export default class ActorsPage extends React.Component {
     return (
       <div>
         <h2>Aktører</h2>
+        <div className="Filters">
+          
+        </div>
         <ActorList actors={this.props.actors} />
       </div>
     );
