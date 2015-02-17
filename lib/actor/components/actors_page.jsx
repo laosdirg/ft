@@ -5,7 +5,7 @@ import FilterList from './filter_list.jsx!'
 
 //------------------------------------------------------------------------------
 
-export default React.createClass({
+export const ActorsPage = React.createClass({
 
   mixins: [ React.addons.PureRenderMixin ],
 
@@ -27,3 +27,5 @@ export default React.createClass({
   },
 
 })
+
+export default ActorsPage

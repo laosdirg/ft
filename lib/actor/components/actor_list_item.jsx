@@ -8,9 +8,7 @@ import ActorList from './actor_list.jsx!'
 
 //------------------------------------------------------------------------------
 
-export default React.createClass({
-
-  displayName: 'ActorListItem',
+export const ActorListItem = React.createClass({
 
   propTypes: {},
 
@@ -19,7 +17,7 @@ export default React.createClass({
   mixins: [ React.addons.PureRenderMixin ],
 
   getInitialState(){
-    return { actorTypes: actorTypeStore.getAll()
+    return { type: actorTypeStore.getFor( this.props.id )
            , actors: actorActorStore.getFor( this.props.id )
            }
   },
@@ -27,12 +25,14 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <p><Anchor route="actors">{ this.props.navn }</Anchor> ({ this.state.actorTypes[ this.props.typeid ]})</p>
-        {this.state.actors.map(actor => {
-          return <p> * {actor.actor} ({actor.type})</p>
+        <p><Anchor route="actors">{ this.props.navn }</Anchor> ({ this.state.type })</p>
+        {this.state.actors.map( (actor, i) => {
+          return <p key={i}> * {actor.actor} ({actor.type})</p>
         })}
       </div>
     )
   },
 
 })
+
+export default ActorListItem

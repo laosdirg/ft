@@ -4,7 +4,7 @@ import * as actorTypeStore from '../stores/actor_type_store'
 
 //------------------------------------------------------------------------------
 
-export default React.createClass({
+export const FilterList = React.createClass({
 
   getInitialState(){
     return {
@@ -15,10 +15,12 @@ export default React.createClass({
   render() {
     return (
       <ol>
-        {this.props.actorTypes.map( (actortype, i) => {
+        {this.state.actorTypes.map( (actortype, i) => {
           return <li key={i}>{ actortype }</li>;
         })}
       </ol>
     );
   }
 });
+
+export default FilterList

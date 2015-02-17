@@ -4,7 +4,7 @@ import ActorListItem from './actor_list_item.jsx!'
 
 //------------------------------------------------------------------------------
 
-export default React.createClass({
+export const ActorList = React.createClass({
 
   render() {
     return (
@@ -17,3 +17,5 @@ export default React.createClass({
   },
 
 })
+
+export default ActorList

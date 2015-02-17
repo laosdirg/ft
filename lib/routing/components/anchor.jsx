@@ -10,10 +10,10 @@ export default React.createClass({
 
   render() {
     return (
-      <a href={this.props.href} onClick={this.handleClick.bind(this)}>
+      <a href={this.props.href} onClick={this.handleClick}>
         { this.props.children }
       </a>
     )
   },
 
-}
+})
