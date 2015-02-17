@@ -19,6 +19,7 @@ export default class ActorListItem extends React.Component {
   render() {
     return (
       <div>
+      asådpkasd
         <p>{ this.props.navn } ({ this.state.actorTypes[ this.props.typeid ]})</p>
       </div>
     );
