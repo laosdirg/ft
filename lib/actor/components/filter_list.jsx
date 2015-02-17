@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as actorActions from '../actions'
 
-import * as actorTypeStore from '../stores/actor_type_store'
+import actorTypeStore from '../stores/actor_type_store'
 
 //------------------------------------------------------------------------------
 
