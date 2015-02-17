@@ -1,12 +1,16 @@
 import React from 'react'
 
+import App from './app.jsx!'
+
 //------------------------------------------------------------------------------
 
 export default React.createClass({
 
   render() {
     return (
-      <p>wadnt found yo</p>
+      <App>
+        <p>wadnt found yo</p>
+      </App>
     )
   },
 

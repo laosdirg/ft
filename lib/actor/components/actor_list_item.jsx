@@ -25,7 +25,7 @@ export const ActorListItem = React.createClass({
   render() {
     return (
       <div>
-        <p><Anchor route="actors">{ this.props.navn }</Anchor> ({ this.state.type })</p>
+        <p><Anchor href="#actors/{ this.props.id }">{ this.props.navn }</Anchor> ({ this.state.type })</p>
         {this.state.actors.map( (actor, i) => {
           return <p key={i}> * {actor.actor} ({actor.type})</p>
         })}

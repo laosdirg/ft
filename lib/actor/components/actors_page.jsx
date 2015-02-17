@@ -1,7 +1,11 @@
 import React from 'react/addons'
 
+import App from 'lib/core/components/app.jsx!'
+
 import ActorList from './actor_list.jsx!'
 import FilterList from './filter_list.jsx!'
+
+import testdata from 'testdata'
 
 //------------------------------------------------------------------------------
 
@@ -11,7 +15,7 @@ export const ActorsPage = React.createClass({
 
   render() {
     return (
-      <div>
+      <App>
         <div>
           <FilterList />
         </div>
@@ -20,9 +24,9 @@ export const ActorsPage = React.createClass({
           <div className="Filters">
 
           </div>
-          <ActorList actors={this.props.actors} />
+          <ActorList actors={testdata.value} />
         </div>
-      </div>
+      </App>
     );
   },
 
