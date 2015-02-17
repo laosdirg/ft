@@ -1,6 +1,7 @@
 import React from 'react/addons'
 
 import ActorList from './actor_list.jsx!'
+import FilterList from './filter_list.jsx!'
 
 //------------------------------------------------------------------------------
 
@@ -11,11 +12,16 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <h2>Aktører</h2>
-        <div className="Filters">
-
+        <div>
+          <FilterList />
         </div>
-        <ActorList actors={this.props.actors} />
+        <div>
+          <h2>Aktører</h2>
+          <div className="Filters">
+
+          </div>
+          <ActorList actors={this.props.actors} />
+        </div>
       </div>
     );
   },
