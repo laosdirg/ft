@@ -5,13 +5,20 @@ import App from 'lib/core/components/app.jsx!'
 import ActorList from './actor_list.jsx!'
 import FilterList from './filter_list.jsx!'
 
-import testdata from 'testdata'
+import actorStore from '../stores/actor_store'
 
 //------------------------------------------------------------------------------
 
 export const ActorsPage = React.createClass({
 
   mixins: [ React.addons.PureRenderMixin ],
+
+  statics: { stores: [actorStore] },
+
+  getStateFromStores() {
+    return { actors: actorStore.getAll()
+           }
+  },
 
   render() {
     return (
@@ -24,7 +31,7 @@ export const ActorsPage = React.createClass({
           <div className="Filters">
 
           </div>
-          <ActorList actors={testdata.value} />
+          <ActorList actors={this.state.actors} />
         </div>
       </App>
     );
