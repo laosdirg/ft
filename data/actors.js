@@ -1,5 +1,9 @@
 export default {
   "odata.metadata":"http://oda.ft.dk/api/%24metadata#Akt%C3%B8r","odata.count":"14158","value":[
+
+{
+  "odata.metadata":"http://oda.ft.dk/api/%24metadata#Akt%C3%B8r/@Element","id":424,"typeid":11,"gruppenavnkort":"Folketinget","navn":"Folketinget","fornavn":null,"efternavn":null,"biografi":"","opdateringsdato":"2015-02-11T08:57:53.49","periodeid":21,"startdato":"2005-02-08T00:00:00","slutdato":"2005-10-04T00:00:00"
+},
     {
       "id":1,"typeid":3,"gruppenavnkort":"FIU","navn":"Finansudvalget","fornavn":null,"efternavn":null,"biografi":"","opdateringsdato":"2015-02-04T15:10:28.71","periodeid":32,"startdato":"2013-10-01T00:00:00","slutdato":"2014-10-07T00:00:00"
     },{
