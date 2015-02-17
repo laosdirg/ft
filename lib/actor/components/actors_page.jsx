@@ -1,5 +1,7 @@
 import React from 'react/addons'
 
+import StoreMixin from 'lib/flux/store_mixin'
+
 import App from 'lib/core/components/app.jsx!'
 
 import ActorList from './actor_list.jsx!'
@@ -11,13 +13,16 @@ import actorStore from '../stores/actor_store'
 
 export const ActorsPage = React.createClass({
 
-  mixins: [ React.addons.PureRenderMixin ],
+  mixins: [ React.addons.PureRenderMixin, StoreMixin ],
 
-  statics: { stores: [actorStore] },
+  statics: {
+    stores: [ actorStore ]
+  },
 
   getStateFromStores() {
-    return { actors: actorStore.getAll()
-           }
+    return {
+      actors: actorStore.getAll()
+    }
   },
 
   render() {
