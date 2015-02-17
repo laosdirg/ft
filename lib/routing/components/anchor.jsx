@@ -5,7 +5,7 @@ import React from 'react'
 export default React.createClass({
 
   handleClick( event ) {
-    event.preventDefault()
+    //event.preventDefault()
   },
 
   render() {
