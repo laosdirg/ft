@@ -5,9 +5,8 @@ import * as actorActions from '../actions'
 export const FilterListItem = React.createClass({
 
   handleChange(event){
-    let value = this.props.actortype 
-
-    actorActions.applyFilter( value )
+    let filter = this.props.actortype
+    actorActions.applyFilter( filter )
   },
 
   render() {
