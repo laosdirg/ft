@@ -21,7 +21,7 @@ export const ActorPage = React.createClass({
 
   getStateFromStores() {
     return { type: actorTypeStore.getFor( this.props.actorId )
-           , actors: actorActorStore.getFor( this.props.actorId ).map(rel => actorStore.get( rel.actor ))
+           , actors: actorActorStore.getFor( this.props.actorId ).map(rel => actorStore.get( rel.tilaktørid ))
            }
   },
 
@@ -29,6 +29,7 @@ export const ActorPage = React.createClass({
     return (
       <App>
         <h2>Aktør: {this.props.actorId}, type: {this.state.type}</h2>
+        <h3>Relationer</h3>
         <ActorList actors={this.state.actors}  />
       </App>
     );

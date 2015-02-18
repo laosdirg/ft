@@ -4,7 +4,8 @@ var request = require('request')
 var app = express()
 
 app.get( '/api/:path', function ( req, res ) {
-  var url = 'http://oda.ft.dk/api/' + req.params.path
+  console.log(req)
+  var url = 'http://oda.ft.dk/' + req.url
   console.log(url)
   request( url ).pipe(res);
 })
