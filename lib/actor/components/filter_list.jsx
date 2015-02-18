@@ -1,8 +1,8 @@
 import React from 'react';
 
-import * as actorActions from '../actions'
-
 import actorTypeStore from '../stores/actor_type_store'
+
+import FilterListItem from './filter_list_item.jsx!'
 
 //------------------------------------------------------------------------------
 
@@ -14,16 +14,11 @@ export const FilterList = React.createClass({
     }
   },
 
-  handleChange(event){
-    let value = event.value
-    actorActions.changeSomething( value )
-  },
-
   render() {
     return (
       <ol>
         {this.state.actorTypes.map( (actortype, i) => {
-          return <li key={i}><input type="checkbox" onChange={this.handleChange}>{ actortype }</input></li>;
+          return <li key={i}><FilterListItem actortype={ actortype } /></li>;
         })}
       </ol>
     );
