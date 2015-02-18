@@ -7,7 +7,7 @@ import Anchor from 'lib/routing/components/anchor.jsx!'
 export const ActorListItem = React.createClass({
 
   mixins: [ React.addons.PureRenderMixin ],
-
+  
   render() {
     return (
       <div>
