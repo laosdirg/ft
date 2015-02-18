@@ -10,7 +10,7 @@ export const ActorList = React.createClass({
     return (
       <ol>
         {this.props.actors.map( (actor, i) => {
-          return <li key={i}><ActorListItem {...actor } /></li>
+          return <li key={i}><ActorListItem actor={actor} /></li>
         })}
       </ol>
     );
