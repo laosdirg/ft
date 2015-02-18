@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as actorTypeStore from '../stores/actor_type_store'
+import actorTypeStore from '../stores/actor_type_store'
 
 import FilterListItem from './filter_list_item.jsx!'
 
