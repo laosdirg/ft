@@ -1,24 +1,25 @@
  import React from 'react'
 
+ import StoreMixin from 'lib/flux/store_mixin'
+
  import CaseList from './case_item_list.jsx!'
 
- import CaseStore from '../stores/case_store'
+ import caseStore from '../stores/case_store'
 
  export const CasePage = React.createClass({
 
-  mixins: [ React.addons.PureRenderMixin ],
+  mixins: [ React.addons.PureRenderMixin, StoreMixin ],
 
   statics: {
-    stores: [ CaseStore ]
+    stores: [ caseStore ]
   },
 
   getStateFromStores() {
-    return CaseStore.getAll()
+    return { cases: caseStore.getAll() }
   },
 
   render() {
-    console.log(this.state)
-    return <div>lol<CaseList cases={ this.state } /> </div>
+    return <div><CaseList cases={ this.state.cases } /> </div>
   }
  })
 
