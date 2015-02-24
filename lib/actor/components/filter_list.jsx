@@ -18,7 +18,7 @@ export const FilterList = React.createClass({
   },
 
   getStateFromStores() {
-    return { 
+    return {
       actorTypes: actorTypeStore.getAll(),
       filters: filterStore.getFilters()
     }
