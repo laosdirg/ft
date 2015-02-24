@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title= FT
+    script(src="/jspm_packages/system.js")
+  body
+    h1= FT
+    section(id="application")
+
+    script(src="/config.js")
+    script(type='text/javascript').
+      System.config({baseURL: '/'})
+      System.import('bin/browser')
+      System.import('react').then(function(React) {
+        window.React = React;
+      })
+      window.__DEV__ = true
