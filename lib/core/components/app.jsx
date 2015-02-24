@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Anchor from 'lib/routing/components/anchor.jsx!'
+
 //------------------------------------------------------------------------------
 
 export const FTApp = React.createClass({
@@ -8,8 +10,10 @@ export const FTApp = React.createClass({
     return (
       <div className="FTApp">
         <nav>
-          <a href="#actors">Aktører</a>
-          <a href="#derp">Blindgyde</a>
+          <Anchor href="/">Rod</Anchor>
+          <Anchor href="actors">Aktører</Anchor>
+          <Anchor href="cases">Sager</Anchor>
+          <Anchor href="derp">Blindgyde</Anchor>
         </nav>
         <main>
           {this.props.children}
