@@ -1,16 +1,16 @@
 import React from 'react';
 
-import * as actorActions from '../actions'
+import * as actions from '../actions'
 
 export const FilterListItem = React.createClass({
 
   handleChange(event){
-    if (event) {
-
-    }
-    console.log(event)
     let filter = this.props.actortype
-    actorActions.applyFilter( filter )
+    if (event.target.checked) {
+      actions.applyFilter( filter )
+    } else {
+      actions.removeFilter( filter )
+    }
   },
 
   render() {
