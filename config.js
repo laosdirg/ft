@@ -12,7 +12,7 @@ System.config({
     "crossroads": "npm:crossroads@0.12.0",
     "flux": "npm:flux@2.0.1",
     "hasher": "npm:hasher@1.2.0",
-    "immutable": "npm:immutable@local15",
+    "immutable": "npm:immutable@3.6.2",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "react": "npm:react@0.13.0-beta.1",
     "github:floatdrop/plugin-jsx@0.1.1": {
