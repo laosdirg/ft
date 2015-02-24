@@ -18,7 +18,7 @@
 
   render() {
     console.log(this.state)
-    return <div><CaseList cases={ this.state } /> </div>
+    return <div>lol<CaseList cases={ this.state } /> </div>
   }
  })
 
