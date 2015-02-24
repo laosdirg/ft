@@ -8,10 +8,6 @@
     "Zacharias Knudsen"
   ],
   "format": "es6",
-  "directories": {
-    "lib": "lib",
-    "example": "example"
-  },
   "main": "ft",
   "homepage": "https://github.com/laosdirg/ft",
   "repository": {
@@ -29,8 +25,8 @@
   "registry": "jspm",
   "jspm": {
     "directories": {
-      "example": "example",
-      "lib": "lib"
+      "lib": "lib",
+      "packages": "jspm_packages"
     },
     "dependencies": {
       "crossroads": "npm:crossroads@^0.12.0",

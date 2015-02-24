@@ -11,7 +11,7 @@ export const ActorListItem = React.createClass({
   render() {
     return (
       <div>
-        <p><Anchor href={"#actors/" + this.props.actor.get('id') }>{ this.props.actor.get('navn') }</Anchor> ({ this.props.actor.get('type') })</p>
+        <p><Anchor href={"actors/" + this.props.actor.get('id') }>{ this.props.actor.get('navn') }</Anchor> ({ this.props.actor.get('type') })</p>
       </div>
     )
   },

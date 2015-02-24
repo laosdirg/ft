@@ -1,11 +1,3 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>FT</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="jspm_packages/system.js"></script>
-    <style>
 a {
 text-decoration: none;
 color: #63524b;
@@ -57,20 +49,3 @@ section h1 {
 .nummer {
   background: #c5a26c;
 }
-
-    </style>
-  </head>
-  <body>
-    <h1>FT</h1>
-    <section id="application"></section>
-
-    <script src="./config.js"></script>
-    <script>
-      System.import('bin/browser')
-      System.import('react').then(function(React) {
-        window.React = React;
-      })
-      window.__DEV__ = true
-    </script>
-  </body>
-</html>
