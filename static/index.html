@@ -66,8 +66,10 @@ section h1 {
 
     <script src="./config.js"></script>
     <script>
-      System.transpiler = '6to5';
-      System.import('bin/browser');
+      System.import('bin/browser')
+      System.import('react').then(function(React) {
+        window.React = React;
+      })
     </script>
   </body>
 </html>

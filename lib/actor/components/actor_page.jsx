@@ -35,6 +35,7 @@ export const ActorPage = React.createClass({
     if (!this.state.actor) return <p>Loading</p>
     return (
       <App>
+        <img src={this.state.actor.getIn(["biografi", "pictureMiRes", 0])} />
         <h1>Nicolai Wammen <span className="Label ministertitel">Forsvarsminister</span></h1>
 
         <section>
@@ -46,6 +47,10 @@ export const ActorPage = React.createClass({
             <li className="udvalg"><a href="#">Finansudvalget</a></li>
             <li className="kommission"><a href="#">Dansk Interparlamentarisk Gruppes bestyrelse</a></li>
           </ul>
+        </section>
+
+        <section>
+          <h1>Lovforslag</h1>
         </section>
 
         <section>
