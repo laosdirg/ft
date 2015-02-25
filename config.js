@@ -1,10 +1,12 @@
 System.config({
   "transpiler": "babel",
-  "babelOptions": {experimental: true},
   "paths": {
     "*": "*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
+  },
+  "babelOptions": {
+    "experimental": true
   }
 });
 
@@ -13,7 +15,7 @@ System.config({
     "crossroads": "npm:crossroads@0.12.0",
     "flux": "npm:flux@2.0.1",
     "hasher": "npm:hasher@1.2.0",
-    "immutable": "npm:immutable@local35",
+    "immutable": "npm:immutable@3.6.2",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "react": "npm:react@0.13.0-beta.1",
     "github:floatdrop/plugin-jsx@0.1.1": {
@@ -479,3 +481,4 @@ System.config({
     }
   }
 });
+

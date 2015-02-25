@@ -21,7 +21,6 @@
     "postinstall": "jspm install",
     "start": "npm run develop & npm run serve",
     "test": "echo \"TODO: Make errors\" && exit 1",
-
     "serve": "node bin/server.js",
     "develop": "gulp"
   },
