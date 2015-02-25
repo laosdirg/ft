@@ -13141,9 +13141,7 @@ System.register("lib/case/stores/cases_store", ["immutable", "lib/flux/store", "
             value: function handleAction(action) {
               switch (action.type) {
                 case "CASES_LOAD_SUCCES":
-                  var state = action.cases.map(function (casedata) {
-                    return casedata;
-                  });
+                  var state = Immutable.fromJS(payload.cases);
                   return state;
                 case "APPLIED_FILTER":
                   return this.state;
@@ -18227,7 +18225,7 @@ System.register("lib/application", ["react", "crossroads", "hasher", "./actor/ac
       var element = React.createElement(FilterList);
       React.render(element, container);
     });
-    crossroads.addRoute("/cases/{filterid}", function () {
+    crossroads.addRoute("/cases/{filterid}", function (filterid) {
       caseActions.loadCases(filterid);
 
       var element = React.createElement(CasesPage);
