@@ -4089,9 +4089,9 @@ System.register("lib/actor/constants", [], function (_export) {
     execute: function () {
       "use strict";
 
-      ACTOR_LOAD_BEGAN = _export("ACTOR_LOAD_BEGAN", Symbol("Actor load bean"));
-      ACTOR_LOAD_FAILED = _export("ACTOR_LOAD_FAILED", Symbol("Actor load failed"));
-      ACTOR_LOADED = _export("ACTOR_LOADED", Symbol("Actor loaded"));
+      ACTOR_LOAD_BEGAN = _export("ACTOR_LOAD_BEGAN", "Actor load began");
+      ACTOR_LOAD_FAILED = _export("ACTOR_LOAD_FAILED", "Actor load failed");
+      ACTOR_LOADED = _export("ACTOR_LOADED", "Actor loaded");
     }
   };
 });
