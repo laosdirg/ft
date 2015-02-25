@@ -19,8 +19,11 @@
   },
   "scripts": {
     "postinstall": "jspm install",
-    "start": "node bin/server.js",
-    "test": "echo \"TODO: Make errors\" && exit 1"
+    "start": "npm run develop & npm run serve",
+    "test": "echo \"TODO: Make errors\" && exit 1",
+
+    "serve": "node bin/server.js",
+    "develop": "gulp"
   },
   "registry": "jspm",
   "jspm": {
@@ -43,6 +46,8 @@
     "request": "^2.53.0"
   },
   "dependencies": {
+    "gulp": "^3.8.11",
+    "http2": "^3.2.0",
     "jade": "^1.9.2",
     "jspm": "^0.14.0",
     "xml2js": "^0.4.5"

@@ -1,5 +1,6 @@
 System.config({
   "transpiler": "babel",
+  "babelOptions": {experimental: true},
   "paths": {
     "*": "*.js",
     "github:*": "jspm_packages/github/*.js",
@@ -12,7 +13,7 @@ System.config({
     "crossroads": "npm:crossroads@0.12.0",
     "flux": "npm:flux@2.0.1",
     "hasher": "npm:hasher@1.2.0",
-    "immutable": "npm:immutable@3.6.2",
+    "immutable": "npm:immutable@local35",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "react": "npm:react@0.13.0-beta.1",
     "github:floatdrop/plugin-jsx@0.1.1": {
@@ -282,6 +283,20 @@ System.config({
       "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
     "npm:immutable@local2": {
+      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "vm": "github:jspm/nodelibs-vm@0.1.0"
+    },
+    "npm:immutable@local30": {
+      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "vm": "github:jspm/nodelibs-vm@0.1.0"
+    },
+    "npm:immutable@local31": {
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.1",
       "path": "github:jspm/nodelibs-path@0.1.0",
