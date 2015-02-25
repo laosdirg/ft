@@ -12,7 +12,7 @@ export const FilterListItem = React.createClass({
   },
 
   render() {
-    return <Anchor href={ "/cases/" + this.props.casetype.id } onClick={ this.handleClick }>{ this.props.casetype.type }</Anchor>
+    return <Anchor href={ "/cases/" + this.props.casetype } onClick={ this.handleClick }>{ this.props.casetype }</Anchor>
   },
 
 });
