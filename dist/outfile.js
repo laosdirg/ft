@@ -4082,6 +4082,19 @@ System.register("lib/core/xhr", [], function (_export) {
     }
   };
 });
+System.register("lib/actor/constants", [], function (_export) {
+  var ACTOR_LOAD_BEGAN, ACTOR_LOAD_FAILED, ACTOR_LOADED;
+  return {
+    setters: [],
+    execute: function () {
+      "use strict";
+
+      ACTOR_LOAD_BEGAN = _export("ACTOR_LOAD_BEGAN", Symbol());
+      ACTOR_LOAD_FAILED = _export("ACTOR_LOAD_FAILED", Symbol());
+      ACTOR_LOADED = _export("ACTOR_LOADED", Symbol());
+    }
+  };
+});
 System.register("lib/case/actions", ["lib/core/dispatcher", "lib/core/xhr"], function (_export) {
   var Dispatcher, xhr;
 
@@ -4091,7 +4104,7 @@ System.register("lib/case/actions", ["lib/core/dispatcher", "lib/core/xhr"], fun
 
   function loadCases(filterid) {
     Dispatcher.dispatch({
-      action: "CASES_LOAD_BEGIN",
+      type: "CASES_LOAD_BEGIN",
       filterid: filterid
     });
 
@@ -4101,19 +4114,19 @@ System.register("lib/case/actions", ["lib/core/dispatcher", "lib/core/xhr"], fun
       var cases = result.value;
 
       return {
-        action: "CASES_LOAD_SUCCES",
+        type: "CASES_LOAD_SUCCES",
         cases: cases
       };
     }, function (error) {
       return {
-        action: "CASE_LOAD_FAIL"
+        type: "CASE_LOAD_FAIL"
       };
     });
   }
 
   function applyFilter(filter, id) {
     Dispatcher.dispatch({
-      action: "FILTER_APPLIED",
+      type: "FILTER_APPLIED",
       filter: filter
     });
   }
@@ -8789,8 +8802,8 @@ System.register("data/actor_types", [], function (_export) {
     }
   };
 });
-System.register("lib/actor/stores/actor_actor_store", ["immutable", "lib/core/dispatcher", "lib/flux/store"], function (_export) {
-  var Immutable, dispatcher, Store, _prototypeProperties, _inherits, _classCallCheck, ActorActorStore, actorActorStore;
+System.register("lib/actor/stores/actor_actor_store", ["immutable", "lib/core/dispatcher", "lib/flux/store", "../constants"], function (_export) {
+  var Immutable, dispatcher, Store, constants, _prototypeProperties, _inherits, _classCallCheck, ActorActorStore, actorActorStore;
 
   return {
     setters: [function (_immutable) {
@@ -8799,6 +8812,8 @@ System.register("lib/actor/stores/actor_actor_store", ["immutable", "lib/core/di
       dispatcher = _libCoreDispatcher["default"];
     }, function (_libFluxStore) {
       Store = _libFluxStore["default"];
+    }, function (_constants) {
+      constants = _constants;
     }],
     execute: function () {
       "use strict";
@@ -8831,11 +8846,11 @@ System.register("lib/actor/stores/actor_actor_store", ["immutable", "lib/core/di
             configurable: true
           },
           handleAction: {
-            value: function handleAction(payload) {
-              switch (payload.action) {
-                case "ACTOR_LOAD_SUCCESS":
-                  return this.state.update(payload.actorId, new Immutable.Set(), function (set) {
-                    return set.union(new Immutable.Set(Immutable.fromJS(payload.relationships)));
+            value: function handleAction(action) {
+              switch (action.type) {
+                case constants.ACTOR_LOADED:
+                  return this.state.update(action.actorId, new Immutable.Set(), function (set) {
+                    return set.union(new Immutable.Set(Immutable.fromJS(action.relationships)));
                   });
 
                 default:
@@ -8927,8 +8942,8 @@ System.register("lib/actor/components/actor_list_item.jsx!github:floatdrop/plugi
     }
   };
 });
-System.register("lib/actor/stores/filter_store", ["lib/core/dispatcher", "lib/flux/store", "immutable", "data/actor_types"], function (_export) {
-  var dispatcher, Store, Immutable, testdata, _prototypeProperties, _inherits, _classCallCheck, FilterStore, filterStore;
+System.register("lib/actor/stores/filter_store", ["lib/core/dispatcher", "lib/flux/store", "immutable", "data/actor_types", "../constants"], function (_export) {
+  var dispatcher, Store, Immutable, testdata, constants, _prototypeProperties, _inherits, _classCallCheck, FilterStore, filterStore;
 
   return {
     setters: [function (_libCoreDispatcher) {
@@ -8939,6 +8954,8 @@ System.register("lib/actor/stores/filter_store", ["lib/core/dispatcher", "lib/fl
       Immutable = _immutable["default"];
     }, function (_dataActor_types) {
       testdata = _dataActor_types["default"];
+    }, function (_constants) {
+      constants = _constants;
     }],
     execute: function () {
       "use strict";
@@ -8982,12 +8999,12 @@ System.register("lib/actor/stores/filter_store", ["lib/core/dispatcher", "lib/fl
             configurable: true
           },
           handleAction: {
-            value: function handleAction(payload) {
-              switch (payload.action) {
+            value: function handleAction(action) {
+              switch (action.type) {
                 case "APPLY_FILTER":
-                  return this.state.set(payload.filter, true);
+                  return this.state.set(action.filter, true);
                 case "REMOVE_FILTER":
-                  return this.state.set(payload.filter, false);
+                  return this.state.set(action.filter, false);
                 default:
                   return this.state;
               }
@@ -13121,10 +13138,10 @@ System.register("lib/case/stores/cases_store", ["immutable", "lib/flux/store", "
             configurable: true
           },
           handleAction: {
-            value: function handleAction(payload) {
-              switch (payload.action) {
+            value: function handleAction(action) {
+              switch (action.type) {
                 case "CASES_LOAD_SUCCES":
-                  var state = payload.cases.map(function (casedata) {
+                  var state = action.cases.map(function (casedata) {
                     return casedata;
                   });
                   return state;
@@ -15613,8 +15630,8 @@ System.register("npm:react@0.13.0-beta.1/lib/cloneWithProps", ["./ReactElement",
 
 
 
-System.register("lib/actor/stores/actor_store", ["immutable", "lib/core/dispatcher", "lib/flux/store"], function (_export) {
-  var Immutable, dispatcher, Store, _prototypeProperties, _inherits, _classCallCheck, Actor, ActorStore, actorStore;
+System.register("lib/actor/stores/actor_store", ["immutable", "lib/core/dispatcher", "lib/flux/store", "../constants"], function (_export) {
+  var Immutable, dispatcher, Store, constants, _prototypeProperties, _inherits, _classCallCheck, Actor, ActorStore, actorStore;
 
   return {
     setters: [function (_immutable) {
@@ -15623,6 +15640,8 @@ System.register("lib/actor/stores/actor_store", ["immutable", "lib/core/dispatch
       dispatcher = _libCoreDispatcher["default"];
     }, function (_libFluxStore) {
       Store = _libFluxStore["default"];
+    }, function (_constants) {
+      constants = _constants;
     }],
     execute: function () {
       "use strict";
@@ -15667,10 +15686,10 @@ System.register("lib/actor/stores/actor_store", ["immutable", "lib/core/dispatch
             configurable: true
           },
           handleAction: {
-            value: function handleAction(payload) {
-              switch (payload.action) {
-                case "ACTOR_LOAD_SUCCESS":
-                  return payload.actors.reduce(function (state, actor) {
+            value: function handleAction(action) {
+              switch (action.type) {
+                case constants.ACTOR_LOADED:
+                  return action.actors.reduce(function (state, actor) {
                     return state.set(actor.id, Immutable.fromJS(actor));
                   }, this.state);
 
@@ -17449,14 +17468,14 @@ System.register("lib/core/dispatcher", ["flux"], function (_export) {
 
         _prototypeProperties(Dispatcher, null, {
           dispatch: {
-            value: function dispatch() {
-              for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-                args[_key] = arguments[_key];
+            value: function dispatch(action) {
+              if (!action.type) {
+                throw new Error("No action type given");
               }
 
-              console.log.apply(console, ["Action dispatched!"].concat(args));
+              console.log("Action dispatched!", action);
 
-              _get(Object.getPrototypeOf(Dispatcher.prototype), "dispatch", this).apply(this, args);
+              _get(Object.getPrototypeOf(Dispatcher.prototype), "dispatch", this).call(this, action);
             },
             writable: true,
             configurable: true
@@ -17690,8 +17709,8 @@ System.register("npm:react@0.13.0-beta.1/lib/ReactDOMIDOperations", ["./CSSPrope
 
 
 
-System.register("lib/actor/actions", ["lib/core/dispatcher", "lib/core/xhr"], function (_export) {
-  var dispatcher, xhr, _slicedToArray;
+System.register("lib/actor/actions", ["lib/core/dispatcher", "lib/core/xhr", "./constants"], function (_export) {
+  var dispatcher, xhr, constants, _slicedToArray;
 
   //---------------------------------------------------------------------------------------
 
@@ -17705,19 +17724,19 @@ System.register("lib/actor/actions", ["lib/core/dispatcher", "lib/core/xhr"], fu
 
   function applyFilter(filter) {
     dispatcher.dispatch({
-      action: "APPLY_FILTER",
+      type: "APPLY_FILTER",
       filter: filter
     });
   }
 
   function removeFilter(filter) {
     dispatcher.dispatch({
-      action: "REMOVE_FILTER",
+      type: "REMOVE_FILTER",
       filter: filter
     });
   }function loadActor(id) {
     dispatcher.dispatch({
-      action: "ACTOR_LOAD_BEGIN",
+      type: constants.ACTOR_LOAD_BEGAN,
       actorId: id
     });
 
@@ -17737,13 +17756,13 @@ System.register("lib/actor/actions", ["lib/core/dispatcher", "lib/core/xhr"], fu
       aktører.push(aktør);
 
       return dispatcher.dispatch({
-        action: "ACTOR_LOAD_SUCCESS",
+        type: constants.ACTOR_LOADED,
         actorId: id,
         actors: aktører,
         relationships: aktøraktør.value });
     }, function (error) {
       return dispatcher.dispatch({
-        action: "ACTOR_LOAD_ERROR",
+        type: constants.ACTOR_LOAD_FAILED,
         error: error
       });
     });
@@ -17753,6 +17772,8 @@ System.register("lib/actor/actions", ["lib/core/dispatcher", "lib/core/xhr"], fu
       dispatcher = _libCoreDispatcher["default"];
     }, function (_libCoreXhr) {
       xhr = _libCoreXhr["default"];
+    }, function (_constants) {
+      constants = _constants;
     }],
     execute: function () {
       "use strict";
