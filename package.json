@@ -42,9 +42,11 @@
   "devDependencies": {
     "express": "^4.11.2",
     "gulp-livereload": "^3.8.0",
+    "gulp-plumber": "^0.6.6",
     "gulp-watch": "^4.1.1",
     "http-server": "^0.7.4",
-    "request": "^2.53.0"
+    "request": "^2.53.0",
+    "rimraf": "^2.2.8"
   },
   "dependencies": {
     "gulp": "^3.8.11",

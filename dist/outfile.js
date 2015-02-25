@@ -4089,9 +4089,9 @@ System.register("lib/actor/constants", [], function (_export) {
     execute: function () {
       "use strict";
 
-      ACTOR_LOAD_BEGAN = _export("ACTOR_LOAD_BEGAN", Symbol("Actor load bean"));
-      ACTOR_LOAD_FAILED = _export("ACTOR_LOAD_FAILED", Symbol("Actor load failed"));
-      ACTOR_LOADED = _export("ACTOR_LOADED", Symbol("Actor loaded"));
+      ACTOR_LOAD_BEGAN = _export("ACTOR_LOAD_BEGAN", "Actor load began");
+      ACTOR_LOAD_FAILED = _export("ACTOR_LOAD_FAILED", "Actor load failed");
+      ACTOR_LOADED = _export("ACTOR_LOADED", "Actor loaded");
     }
   };
 });
@@ -8751,8 +8751,15 @@ System.register("lib/core/logger", [], function (_export) {
 
   _export("warn", warn);
 
-  function log(args) {
-    console.log(args);
+  function log(format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var message = format.replace(/%s/g, function () {
+      return args.shift();
+    });
+    console.log.apply(console, [message].concat(args));
   }
   function warn(args) {
     console.warn(args);
@@ -12844,7 +12851,7 @@ System.register("lib/flux/store", ["immutable", "../change_emitter", "lib/core/l
             if (hasStateChanged) {
               // If so, update state and emit change event
               state = nextState;
-              log("Store" + _this3.displayName + " changed", state.toJS());
+              log("State changed in store: \"%s\".", _this3.displayName, state.toJS());
               _this3.emitChange();
             }
           });
@@ -15656,7 +15663,7 @@ System.register("lib/actor/stores/actor_store", ["immutable", "lib/core/dispatch
 
       Actor = new Immutable.Record({
         id: "",
-        name: "derp"
+        name: "dxxxerp"
       });
 
       ActorStore = (function (Store) {
@@ -18044,9 +18051,6 @@ System.register("lib/actor/components/actor_page.jsx!github:floatdrop/plugin-jsx
           stores: [actorStore, actorTypeStore, actorActorStore] },
 
         getStateFromStores: function getStateFromStores() {
-          console.log("actoractor", actorActorStore.getFor(this.props.actorId).map(function (rel) {
-            return actorStore.get(rel.get("tilaktørid"));
-          }).toJS());
           return { actor: actorStore.get(this.props.actorId),
             type: actorTypeStore.getFor(this.props.actorId),
             actors: actorActorStore.getFor(this.props.actorId).map(function (rel) {
