@@ -19,7 +19,7 @@ gulp.task('build', function(){
   return builder
     .loadConfig('./config.js')
     .then(function(){
-      return builder.build('bin/browser', 'dist/outfile.js')
+      return builder.build('bin/browser', 'dist/outfile.js', { sourceMaps: true, lowResSourceMaps: true })
         .then(function() {
           console.log('Build complete');
           livereload.reload('dist/outfile.js');
