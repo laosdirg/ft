@@ -41,6 +41,8 @@
   },
   "devDependencies": {
     "express": "^4.11.2",
+    "gulp-livereload": "^3.8.0",
+    "gulp-watch": "^4.1.1",
     "http-server": "^0.7.4",
     "request": "^2.53.0"
   },
