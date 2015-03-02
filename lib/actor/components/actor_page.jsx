@@ -16,17 +16,12 @@ export const ActorPage = React.createClass({
   mixins: [ React.addons.PureRenderMixin, StoreMixin ],
 
   statics: {
-    stores: [ actorStore, actorTypeStore, actorActorStore ],
+    stores: [ actorStore, actorTypeStore ],
   },
 
   getStateFromStores() {
     return { actor: actorStore.get( this.props.actorId )
            , type: actorTypeStore.getFor( this.props.actorId )
-           , actors: actorActorStore.getFor( this.props.actorId ).map(rel => {
-               let actor = actorStore.get( rel.get('tilaktørid') )
-               actor = actor.set( 'type', actorTypeStore.getFor( actor.get('typeid') ) )
-               return actor
-             })
            }
   },
 
@@ -35,7 +30,7 @@ export const ActorPage = React.createClass({
     return (
       <App>
         <img src={this.state.actor.getIn(["biografi", "pictureMiRes", 0])} />
-        <h1>Nicolai Wammen <span className="Label ministertitel">Forsvarsminister</span></h1>
+        <h1>{this.state.actor.get('name')}<span className="Label ministertitel">Forsvarsminister</span></h1>
 
         <section>
           <h1>Medlem af</h1>

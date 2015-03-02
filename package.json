@@ -22,7 +22,7 @@
     "start": "npm run develop & npm run serve",
     "test": "echo \"TODO: Make errors\" && exit 1",
     "serve": "node bin/server.js",
-    "develop": "gulp"
+    "develop": "gulp develop"
   },
   "registry": "jspm",
   "jspm": {
@@ -36,7 +36,7 @@
       "hasher": "npm:hasher@^1.2.0",
       "immutable": "npm:immutable@^3.6.2",
       "jsx": "github:floatdrop/plugin-jsx@^0.1.1",
-      "react": "npm:react@0.13.0-beta.1"
+      "react": "npm:react@0.13.0-rc1"
     }
   },
   "devDependencies": {

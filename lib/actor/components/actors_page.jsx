@@ -8,6 +8,7 @@ import ActorList from './actor_list.jsx!'
 import FilterList from './filter_list.jsx!'
 
 import actorStore from '../stores/actor_store'
+import * as actorActions from '../actions'
 
 //------------------------------------------------------------------------------
 
@@ -21,11 +22,16 @@ export const ActorsPage = React.createClass({
 
   getStateFromStores() {
     return {
-      actors: actorStore.getAll()
+      actors: actorStore.getList('MAIN').map(actorStore.get.bind(actorStore))
     }
   },
 
+  handleClick() {
+    actorActions.loadActors('MAIN', null, this.state.actors.size)
+  },
+
   render() {
+    console.log(this.state.actors)
     return (
       <App>
         <div>
@@ -37,6 +43,7 @@ export const ActorsPage = React.createClass({
 
           </div>
           <ActorList actors={this.state.actors} />
+          <button type="button" onClick={this.handleClick}>Load more</button>
         </div>
       </App>
     );

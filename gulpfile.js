@@ -5,10 +5,10 @@ var watch = require('gulp-watch');
 var livereload = require('gulp-livereload');
 var fs = require('fs');
 
-gulp.task('default', ['build'], function (cb) {
+gulp.task('develop', ['build'], function () {
   livereload.listen()
 
-  watch(['lib/**/*.js', 'lib/**/*.jsx'], function(){
+  return watch(['lib/**/*.js', 'lib/**/*.jsx'], function(){
     gulp.start('build');
   })
 
@@ -23,7 +23,7 @@ gulp.task('build', function(){
       return builder.build('bin/browser', 'dist/outfile.js', { sourceMaps: true, lowResSourceMaps: true })
         .then(function() {
           console.log('Build complete');
-          livereload.reload('dconfig.js');
+          livereload.reload('config.js');
         })
     }).catch(function(err){
       try{fs.unlinkSync('dist/outfile.js')}
@@ -31,4 +31,5 @@ gulp.task('build', function(){
       console.log('Build error', err);
       livereload.reload('config.js');
     })
+
 })

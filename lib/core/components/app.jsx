@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Anchor from 'lib/routing/components/anchor.jsx!'
+import SearchContainer from 'lib/search/components/search_container.jsx!'
 
 //------------------------------------------------------------------------------
 
@@ -14,6 +15,7 @@ export const FTApp = React.createClass({
           <Anchor href="actors">Aktører</Anchor>
           <Anchor href="cases">Sager</Anchor>
           <Anchor href="derp">Blindgyde</Anchor>
+          <SearchContainer />
         </nav>
         <main>
           {this.props.children}

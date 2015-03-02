@@ -17,7 +17,7 @@ System.config({
     "hasher": "npm:hasher@1.2.0",
     "immutable": "npm:immutable@3.6.2",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
-    "react": "npm:react@0.13.0-beta.1",
+    "react": "npm:react@0.13.0-rc1",
     "github:floatdrop/plugin-jsx@0.1.1": {
       "react-tools": "npm:react-tools@0.12.2"
     },
@@ -263,55 +263,6 @@ System.config({
       "string_decoder": "github:jspm/nodelibs-string_decoder@0.1.0",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
-    "npm:immutable@3.6.3": {
-      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "vm": "github:jspm/nodelibs-vm@0.1.0"
-    },
-    "npm:immutable@3.6.4": {
-      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "vm": "github:jspm/nodelibs-vm@0.1.0"
-    },
-    "npm:immutable@3.6.5": {
-      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "vm": "github:jspm/nodelibs-vm@0.1.0"
-    },
-    "npm:immutable@local2": {
-      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "vm": "github:jspm/nodelibs-vm@0.1.0"
-    },
-    "npm:immutable@local30": {
-      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "vm": "github:jspm/nodelibs-vm@0.1.0"
-    },
-    "npm:immutable@local31": {
-      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "vm": "github:jspm/nodelibs-vm@0.1.0"
-    },
-    "npm:immutable@local8": {
-      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "vm": "github:jspm/nodelibs-vm@0.1.0"
-    },
     "npm:inflight@1.0.4": {
       "once": "npm:once@1.3.1",
       "process": "github:jspm/nodelibs-process@0.1.1",
@@ -404,6 +355,11 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:react@0.13.0-beta.1": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "envify": "npm:envify@3.2.0",
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:react@0.13.0-rc1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "envify": "npm:envify@3.2.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
