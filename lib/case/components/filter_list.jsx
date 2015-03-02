@@ -24,7 +24,6 @@ export const FilterList = React.createClass({
   },
 
   render() {
-    console.log(this.state.casetypes)
     return (
       <div>
         <ul>
