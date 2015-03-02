@@ -19,6 +19,7 @@
   },
 
   render() {
+    if (!this.state.cases) return <p>Loading</p>
     return <div><CaseList cases={ this.state.cases } /> </div>
   }
  })
