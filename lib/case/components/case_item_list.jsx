@@ -6,11 +6,17 @@ export const CaseList = React.createClass({
 
   render() {
     return (
-      <ol>
-        {this.props.cases.map( (caseitem, caseid) => {
-          return <li key={ caseid }><CaseItem caseid={ caseid } caseitem={ caseitem } /></li>
-        })}
-      </ol>
+      <div>
+        <ol>
+          {this.props.cases.map( (caseitem, caseid) => {
+            return (
+              <li key={ caseid }>
+                <CaseItem caseid={ caseid } caseitem={ caseitem } />
+              </li>
+            )
+          })}
+        </ol>
+      </div>
     )
   }
 })
