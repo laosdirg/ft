@@ -2,7 +2,7 @@ import React from 'react';
 
 import StoreMixin from 'lib/flux/store_mixin'
 
-import caseTypeStore from '../stores/casetype_store'
+import caseTypeStore from '../stores/case_type_store'
 
 import FilterListItem from './filter_list_item.jsx!'
 

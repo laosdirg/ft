@@ -17,7 +17,9 @@ statics: {
 },
 
 getStateFromStores() {
-  return { cases: casesStore.getAll() }
+  return {
+    cases: casesStore.getAll()
+  }
 },
 
 render() {

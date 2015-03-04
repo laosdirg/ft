@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as actions from '../actions'
 
-import caseTypeStore from '../stores/casetype_store'
+import caseTypeStore from '../stores/case_type_store'
 
 import Anchor from 'lib/routing/components/anchor.jsx!'
 
