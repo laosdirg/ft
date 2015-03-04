@@ -11,8 +11,7 @@ export const FTApp = React.createClass({
     return (
       <div className="FTApp">
         <nav className="App-nav">
-          <h1>FT</h1>
-          <Anchor href="/">Rod</Anchor>
+          <h1><Anchor href="/">FT</Anchor></h1>
           <Anchor href="actors">Aktører</Anchor>
           <Anchor href="cases">Sager</Anchor>
           <Anchor href="derp">Blindgyde</Anchor>
