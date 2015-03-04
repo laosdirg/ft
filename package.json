@@ -40,6 +40,7 @@
     }
   },
   "devDependencies": {
+    "babel": "^4.6.6",
     "express": "^4.11.2",
     "gulp-livereload": "^3.8.0",
     "gulp-plumber": "^0.6.6",

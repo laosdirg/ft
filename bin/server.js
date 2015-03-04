@@ -1,3 +1,5 @@
+var babel = require('babel/register');
+
 var express = require('express')
 var request = require('request')
 var xml2js = require('xml2js')

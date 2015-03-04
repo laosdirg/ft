@@ -10,7 +10,8 @@ export const FTApp = React.createClass({
   render() {
     return (
       <div className="FTApp">
-        <nav>
+        <nav className="App-nav">
+          <h1>FT</h1>
           <Anchor href="/">Rod</Anchor>
           <Anchor href="actors">Aktører</Anchor>
           <Anchor href="cases">Sager</Anchor>

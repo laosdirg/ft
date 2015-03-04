@@ -22,26 +22,27 @@ export const SearchContainer = React.createClass({
   },
 
   getStateFromStores() {
-    let query = ''
-    if (this.state && this.state.query) query = this.state.query
-
-    return { actors: actorStore.getList('SEARCH').map(actorStore.get.bind(actorStore))
-           }
+    if (this.state && this.state.query !== '') {
+      return { actors: actorStore.getList('SEARCH').update('items', list => list.map(actorStore.get.bind(actorStore)))
+             }
+    }
   },
 
   handleChange(event){
-    this.setState({query:event.target.value})
-
     actorActions.loadActors('SEARCH', {query: event.target.value})
+
+    this.setState({query:event.target.value})
   },
 
   render() {
     return (
       <div>
         <Typeahead onChange={this.handleChange} value={this.state.query} />
-        {!this.state.actors ? 'Loading' : this.state.actors.map(actor =>
-          <span>{actor}</span>
-        )}
+        <div className="Search-results">
+          {!this.state.actors || this.state.actors.get('isLoading') ? 'Loading' : this.state.actors.get('items').map(actor =>
+            <span>{actor}</span>
+          )}
+        </div>
       </div>
     )
   },

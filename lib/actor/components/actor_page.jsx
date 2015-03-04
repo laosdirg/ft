@@ -13,18 +13,53 @@ import ActorList from './actor_list.jsx!'
 
 export const ActorPage = React.createClass({
 
-  mixins: [ React.addons.PureRenderMixin, StoreMixin ],
+  /**
+   * Objects which will have their properties merged into this class
+   *
+   * Lifecycle methods that occur in both this class and mixins will be run in
+   * order, starting with the mixins and ending with those defined in this class
+   */
+  mixins: [
+    /**
+     * Implements shouldComponentUpdate() such that component wont be rendered
+     * if props and state are unchanged (using a shallow comparison).
+     *
+     * This is simply an optimization
+     */
+    React.addons.PureRenderMixin,
+    /**
+     * Implements componentDidMount() which sets up change listeners on stores,
+     * as well as componentWillUnmount() which destroys the listeners.
+     *
+     * Whenever a store fires a change event, getStateFromStores() will be
+     * invoked, so any class using this mixin should implement that method
+     */
+    StoreMixin,
+  ],
 
+  /**
+   * The statics object will be merged into the class contructor.
+   *
+   * That means it will be available on this.contructor in this class
+   */
   statics: {
+    // This array contains the stores that should be listened for changes on
     stores: [ actorStore, actorTypeStore ],
   },
 
   getStateFromStores() {
-    return { actor: actorStore.get( this.props.actorId )
-           , type: actorTypeStore.getFor( this.props.actorId )
-           }
+    return {
+      actor: actorStore.get( this.props.actorId ),
+      type: actorTypeStore.getFor( this.props.actorId ),
+    }
   },
 
+  /**
+   * Render the component
+   *
+   * This method should ONLY use state and props. Not e.g. read directly from a
+   * store. This is needed in order to know when to re-render.
+   */
   render() {
     if (!this.state.actor) return <p>Loading</p>
     return (

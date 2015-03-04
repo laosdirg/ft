@@ -1,7 +1,36 @@
+.App-nav {
+  display: flex;
+  padding: 0 20%;
+  box-shadow: 0 0 2rem rgba(0,0,0,.5);
+}
+.App-nav > * {
+  margin: 0;
+  line-height: 2rem;
+}
+.App-nav a {
+  border-bottom: 0;
+  padding: 0 2rem;
+}
+.Search-results {
+  background: white;
+  position: absolute;
+}
+
+.App-nav a:hover {
+  background: rgba(255,255,255,.3);
+}
+main {
+  margin: 0 auto;
+  width: 60%
+}
+
 a {
 text-decoration: none;
 color: #63524b;
 border-bottom: 1px dotted #988178;
+}
+body, html{
+  margin: 0;
 }
 body {
   background: #EFEBE9;

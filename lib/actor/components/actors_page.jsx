@@ -22,7 +22,7 @@ export const ActorsPage = React.createClass({
 
   getStateFromStores() {
     return {
-      actors: actorStore.getList('MAIN').map(actorStore.get.bind(actorStore))
+      actors: actorStore.getList('MAIN').update('items', list => list.map(actorStore.get.bind(actorStore)))
     }
   },
 
@@ -31,7 +31,7 @@ export const ActorsPage = React.createClass({
   },
 
   render() {
-    console.log(this.state.actors)
+    console.log(this.state.actors.toJS())
     return (
       <App>
         <div>
