@@ -8,9 +8,9 @@ export const CaseItem = React.createClass({
     return (
       <div>
         <span className="Label">id</span>
-          <Anchor href={ "/case/" + this.props.caseid }>{ this.props.caseid }</Anchor>
+        <Anchor href={ "/case/" + this.props.caseid }>{ this.props.caseid }</Anchor>
         <span className="Label">titel</span>
-          { this.props.caseitem.titelkort }
+        { this.props.caseitem.titelkort }
       </div>
     )
   }

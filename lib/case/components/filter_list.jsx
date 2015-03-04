@@ -27,8 +27,8 @@ export const FilterList = React.createClass({
     return (
       <div>
         <ul>
-          {this.state.casetypes.map( (caseid, i) => 
-            { return <li key={ i }> <FilterListItem caseid={ caseid } casetype={ i }/> </li> }
+          {this.state.casetypes.map( (caseid, casetype) => 
+            { return <li key={ casetype }> <FilterListItem caseid={ caseid } casetype={ casetype }/> </li> }
           )}
         </ul>
       </div>

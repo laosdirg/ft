@@ -1,27 +1,34 @@
- import React from 'react'
+import React from 'react'
 
- import StoreMixin from 'lib/flux/store_mixin'
+import StoreMixin from 'lib/flux/store_mixin'
 
- import CaseList from './case_item_list.jsx!'
+import CaseList from './case_item_list.jsx!'
+import FilterList from './filter_list.jsx!'
+import App from 'lib/core/components/app.jsx!'
 
- import casesStore from '../stores/cases_store'
+import casesStore from '../stores/cases_store'
 
- export const CasesPage = React.createClass({
+export const CasesPage = React.createClass({
 
-  mixins: [ React.addons.PureRenderMixin, StoreMixin ],
+mixins: [ React.addons.PureRenderMixin, StoreMixin ],
 
-  statics: {
-    stores: [ casesStore ]
-  },
+statics: {
+  stores: [ casesStore ]
+},
 
-  getStateFromStores() {
-    return { cases: casesStore.getAll() }
-  },
+getStateFromStores() {
+  return { cases: casesStore.getAll() }
+},
 
-  render() {
-    if (!this.state.cases) return <p>Loading</p>
-    return <div><CaseList cases={ this.state.cases } /> </div>
-  }
- })
+render() {
+  if (!this.state.cases) return <p>Loading</p>
+  return (
+    <App>
+      <FilterList />
+      <CaseList cases={ this.state.cases } />
+    </App>
+  )
+}
+})
 
- export default CasesPage
+export default CasesPage
