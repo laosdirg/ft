@@ -1,7 +1,5 @@
 import React from 'react/addons'
 
-import StoreMixin from 'lib/vendor/flux/store_mixin'
-
 import ActorList from './actor_list.jsx!'
 import FilterList from './filter_list.jsx!'
 
@@ -22,14 +20,16 @@ export const ActorsPage = React.createClass({
   },
 
   getStateFromStores() {
+    const actors = this.getStore(ActorStore)
+
     return {
-      actors: this.getStore(ActorStore).getList('MAIN')
-        .update('items', list => list.map(this.getStore(ActorStore).get.bind(this.getStore(ActorStore))))
+      actors: actors.getList('MAIN')
+        .update('items', list => list.map(actors.get))
     }
   },
 
   handleClick() {
-    actorActions.loadActors(this.context.dispatcher, 'MAIN', null, this.state.actors.size)
+    this.action(actorActions.loadActors, 'MAIN', null, this.state.actors.size)
   },
 
   render() {
@@ -43,7 +43,7 @@ export const ActorsPage = React.createClass({
           <div className="Filters">
 
           </div>
-          {/*<ActorList actors={this.state.actors} />*/}
+          <ActorList actors={this.state.actors} />
           <button type="button" onClick={this.handleClick}>Load more</button>
         </div>
       </div>

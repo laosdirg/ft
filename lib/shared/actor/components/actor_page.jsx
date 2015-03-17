@@ -1,7 +1,5 @@
 import React from 'react/addons'
 
-import StoreMixin from 'lib/vendor/flux/store_mixin'
-
 import { ActorStore } from '../stores/actor_store'
 import { ActorTypeStore } from '../stores/actor_type_store'
 
@@ -9,6 +7,8 @@ import App from 'lib/shared/core/components/app.jsx!'
 import ActorList from './actor_list.jsx!'
 
 import {FluxMixin} from 'lib/vendor/flux/mixin'
+
+import { Anchor } from 'lib/vendor/route/components/anchor.jsx!'
 
 //------------------------------------------------------------------------------
 
@@ -21,7 +21,6 @@ export const ActorPage = React.createClass({
    * order, starting with the mixins and ending with those defined in this class
    */
   mixins: [
-    FluxMixin,
     /**
      * Implements shouldComponentUpdate() such that component wont be rendered
      * if props and state are unchanged (using a shallow comparison).
@@ -36,7 +35,7 @@ export const ActorPage = React.createClass({
      * Whenever a store fires a change event, getStateFromStores() will be
      * invoked, so any class using this mixin should implement that method
      */
-    StoreMixin,
+     FluxMixin,
   ],
 
   /**

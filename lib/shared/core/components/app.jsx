@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Anchor from 'lib/shared/routing/components/anchor.jsx!'
+import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
 import SearchContainer from 'lib/shared/search/components/search_container.jsx!'
 
-import StoreMixin from 'lib/vendor/flux/store_mixin'
-import { RouteStore } from 'lib/shared/routing/store'
+import { RouteStore } from 'lib/vendor/routing/store'
 
 import {ActorsPage} from 'lib/shared/actor/components/actors_page.jsx!'
+import {CasesPage} from 'lib/shared/case/components/cases_page.jsx!'
 
 import {FluxWrapperMixin, FluxMixin} from 'lib/vendor/flux/mixin'
 
@@ -14,22 +14,29 @@ import {FluxWrapperMixin, FluxMixin} from 'lib/vendor/flux/mixin'
 
 export const FTApp = React.createClass({
 
-  mixins: [ FluxWrapperMixin, React.addons.PureRenderMixin ],
+  mixins: [ FluxMixin, React.addons.PureRenderMixin ],
 
   statics: {
-    stores: [ RouteStore ]
+    stores: [ RouteStore ],
   },
 
   getStateFromStores() {
-    return { route: 1 }
+    return {
+      route: this.getStore(RouteStore).getRoute()
+    }
   },
 
   render() {
-    let page = ''
-    switch (true) {
-      default:
-        page = <ActorsPage />
+    let child = ''
+    switch (this.state.route.get('name')) {
+      case '/actors':
+        child = <ActorsPage />
         break
+      case '/cases':
+        child = <CasesPage />
+        break
+      default:
+        child = 'not found!'
     }
 
     return (
@@ -42,7 +49,7 @@ export const FTApp = React.createClass({
           <SearchContainer />
         </nav>
         <main>
-          {page}
+          {child}
         </main>
       </div>
     )

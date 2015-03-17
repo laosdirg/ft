@@ -2,17 +2,18 @@ import React from 'react';
 
 import * as actions from '../actions'
 
-import dispatcher from 'lib/shared/flux/dispatcher'
 import { CaseTypeStore } from '../stores/casetype_store'
 
-import Anchor from 'lib/shared/routing/components/anchor.jsx!'
+import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
+
+import {FluxMixin} from 'lib/vendor/flux/mixin'
 
 export const FilterListItem = React.createClass({
 
   handleClick( event ) {
     let filter = this.props.casetype
     actions.applyFilter( filter )
-    let casetypeid = dispatcher.get(CaseTypeStore).getFor( filter )
+    let casetypeid = this.getStore(CaseTypeStore).getFor( filter )
     actions.loadCases( casetypeid )
   },
 

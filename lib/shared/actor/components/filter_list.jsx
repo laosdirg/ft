@@ -1,18 +1,16 @@
 import React from 'react';
 
-import StoreMixin from 'lib/vendor/flux/store_mixin'
-
-import dispatcher from 'lib/shared/flux/dispatcher'
 import { ActorTypeStore } from '../stores/actor_type_store'
 import { ActorFilterStore } from '../stores/actor_filter_store'
 
 import FilterListItem from './filter_list_item.jsx!'
+import {FluxMixin} from 'lib/vendor/flux/mixin'
 
 //------------------------------------------------------------------------------
 
 export const FilterList = React.createClass({
 
-  mixins: [ React.addons.PureRenderMixin, StoreMixin ],
+  mixins: [ FluxMixin, React.addons.PureRenderMixin ],
 
   statics: {
     stores: [ ActorTypeStore, ActorFilterStore ]
@@ -20,8 +18,8 @@ export const FilterList = React.createClass({
 
   getStateFromStores() {
     return {
-      actorTypes: dispatcher.get(ActorTypeStore).getAll(),
-      filters: dispatcher.get(ActorFilterStore).getFilters()
+      actorTypes: this.getStore(ActorTypeStore).getAll(),
+      filters: this.getStore(ActorFilterStore).getFilters()
     }
   },
 

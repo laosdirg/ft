@@ -1,19 +1,18 @@
 import React from 'react/addons'
 
-import StoreMixin from 'lib/vendor/flux/store_mixin'
-
 import * as actorActions from '../../actor/actions'
-import dispatcher from '../../flux/dispatcher'
 import { ActorStore } from '../../actor/stores/actor_store'
+import {FluxMixin} from 'lib/vendor/flux/mixin'
+
 
 import Typeahead from './typeahead.jsx!'
-import Anchor from '../../routing/components/anchor.jsx!'
+import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
 
 //------------------------------------------------------------------------------
 
 export const SearchContainer = React.createClass({
 
-  mixins: [ React.addons.PureRenderMixin, StoreMixin ],
+  mixins: [ React.addons.PureRenderMixin, FluxMixin ],
 
   statics: {
     stores: [ ActorStore ],
@@ -25,13 +24,13 @@ export const SearchContainer = React.createClass({
 
   getStateFromStores() {
     if (this.state && this.state.query !== '') {
-      return { actors: dispatcher.get(ActorStore).getList('SEARCH').update('items', list => list.map(dispatcher.get(ActorStore).get.bind(dispatcher.get(actorStore))))
+      return { actors: this.getStore(ActorStore).getList('SEARCH').update('items', list => list.map(this.getStore(ActorStore).get.bind(this.getStore(ActorStore))))
              }
     }
   },
 
   handleChange(event){
-    actorActions.loadActors(dispatcher, 'SEARCH', {query: event.target.value})
+    this.action(actorActions.loadActors, 'SEARCH', {query: event.target.value})
 
     this.setState({query:event.target.value})
   },

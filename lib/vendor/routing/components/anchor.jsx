@@ -17,7 +17,7 @@ export default React.createClass({
     if (!event.defaultPrevented) {
       event.preventDefault()
 
-      this.execute(navigate, href)
+      this.action(navigate, href)
     }
   },
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Anchor from 'lib/shared/routing/components/anchor.jsx!'
+import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
 
 export const CaseItem = React.createClass({
 
