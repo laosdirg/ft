@@ -2,14 +2,15 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    title FT
+    title= title
     script(src="/jspm_packages/system.js")
     link(rel="stylesheet", href="/css/common.css")
   body
-    section(id="application")
+    section(id="application")!= renderedMarkup
 
     script(src="/config.js")
     script(src="/dist/outfile.js")
+
     script(type='text/javascript').
       System.config({baseURL: '/'})
       System.import('bin/browser')

@@ -1,12 +1,10 @@
-var babel = require('babel/register');
-//var application = require('../lib/ft.js');
-
 var express = require('express')
 var request = require('request')
 var xml2js = require('xml2js')
 var http2 = require('http2')
 var fs = require('fs')
 var qs = require('querystring')
+
 
 var app = express()
 
@@ -90,11 +88,25 @@ app.get( '/api/:path', function ( req, res ) {
    })
 })
 
-app.set('views', './views'); // specify the views directory
-app.get( '/*', function(req, res){
-  //var html = application.renderToString('/actors')
 
-  res.render('index.jade')
+
+
+//------------------------------------------------------------------------------
+
+
+app.set('views', './views'); // specify the views directory
+
+
+global.__DEV__ = true
+var System = require('systemjs')
+System.transpiler = 'babel'
+System.import("../config").then(function(){
+  System.import('../lib/server').then(function(server){
+
+
+    app.get( '/*', server.serve)
+
+})
 })
 
 app.listen(8080)
