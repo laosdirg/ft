@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
+import Anchor from 'laosdirg-flux-router/components/anchor.jsx!'
 import SearchContainer from 'lib/shared/search/components/search_container.jsx!'
 
-import { RouteStore } from 'lib/vendor/routing/store'
+import { RouteStore } from 'laosdirg-flux-router/store'
 
 import {ActorsPage} from 'lib/shared/actor/components/actors_page.jsx!'
 import {CasesPage} from 'lib/shared/case/components/cases_page.jsx!'

@@ -1,6 +1,6 @@
 import { Context, renderToDOM } from '../lib/ft'
 
-import { navigate } from 'lib/vendor/routing/actions'
+import { navigate } from 'laosdirg-flux-router/actions'
 
 // instantiate flux data layer (rehydrating from server-sent state)
 const context = new Context( )
@@ -15,3 +15,10 @@ window.addEventListener( 'DOMContentLoaded', event => {
 
   renderToDOM( context, container )
 })
+
+
+
+
+
+
+import '../lib/multitest.jsx!'

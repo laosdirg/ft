@@ -2,7 +2,7 @@ import React from 'react'
 
 import { CasesStore } from '../stores/cases_store'
 
-import App from 'lib/shared/core/components/app.jsx!'
+import App from 'lib/shared/common/components/app.jsx!'
 import CaseItem from './case_item.jsx!'
 
 import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'

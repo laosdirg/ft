@@ -15,13 +15,23 @@ gulp.task('develop', ['build'], function () {
       console.log('Restarted node server!')
     })
 
-  exec('cd modules/flux && jspm link github:laosdirg/flux@dev -y');
-  watch(['modules/flux/**/*'], function(){
+  function linkflux(){
     console.log('Re-linking flux module')
     exec('cd modules/flux && jspm link github:laosdirg/flux@dev -y', function(){
       gulp.start('build')
     });
-  })
+  }
+  watch(['modules/flux/**/*'], linkflux)
+  linkflux()
+
+  function linkfluxrouter(){
+    console.log('Re-linking flux-router module')
+    exec('cd modules/flux-router && jspm link github:laosdirg/flux-router@dev -y', function(){
+      gulp.start('build')
+    });
+  }
+  watch(['modules/flux-router/**/*'], linkfluxrouter)
+  linkfluxrouter()
 
   return watch(['bin/**/*.js', 'lib/**/*.js', 'lib/**/*.jsx'], function(){
     gulp.start('build');

@@ -2,7 +2,7 @@ import React from 'react'
 
 import CaseList from './case_item_list.jsx!'
 import FilterList from './filter_list.jsx!'
-import App from 'lib/shared/core/components/app.jsx!'
+import App from 'lib/shared/common/components/app.jsx!'
 
 import { CasesStore } from '../stores/cases_store'
 

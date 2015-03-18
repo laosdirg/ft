@@ -3,7 +3,7 @@ import React from 'react/addons'
 import { ActorStore } from '../stores/actor_store'
 import { ActorTypeStore } from '../stores/actor_type_store'
 
-import App from 'lib/shared/core/components/app.jsx!'
+import App from 'lib/shared/common/components/app.jsx!'
 import ActorList from './actor_list.jsx!'
 
 import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'

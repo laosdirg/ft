@@ -4,7 +4,7 @@ import * as actions from '../actions'
 
 import { CaseTypeStore } from '../stores/casetype_store'
 
-import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
+import Anchor from 'laosdirg-flux-router/components/anchor.jsx!'
 
 import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 

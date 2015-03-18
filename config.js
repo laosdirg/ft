@@ -18,6 +18,7 @@ System.config({
     "immutable": "npm:immutable@3.6.2",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "laosdirg-flux": "github:laosdirg/flux@dev",
+    "laosdirg-flux-router": "github:laosdirg/flux-router@dev",
     "laosdirg/flux": "github:laosdirg/flux@dev",
     "react": "npm:react@0.13.0",
     "github:floatdrop/plugin-jsx@0.1.1": {

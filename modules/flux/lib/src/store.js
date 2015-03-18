@@ -4,7 +4,7 @@
 
 import Immutable from 'immutable'
 import ChangeEmitter from 'lib/shared/utils/change_emitter'
-import { log, warn } from 'lib/shared/core/logger'
+import { log, warn } from 'lib/shared/utils/logger'
 
 import { autobind } from 'lib/shared/utils/autobind'
 

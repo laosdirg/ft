@@ -1,6 +1,6 @@
 import React from 'react/addons'
 
-import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
+import Anchor from 'laosdirg-flux-router/components/anchor.jsx!'
 
 //------------------------------------------------------------------------------
 

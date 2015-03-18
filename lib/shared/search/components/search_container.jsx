@@ -6,7 +6,7 @@ import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 
 import Typeahead from './typeahead.jsx!'
-import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
+import Anchor from 'laosdirg-flux-router/components/anchor.jsx!'
 
 //------------------------------------------------------------------------------
 
