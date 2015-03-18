@@ -1,17 +1,25 @@
 import React from 'react'
+
 import { Flux } from 'laosdirg-flux'
+import { Component as FluxComponent } from 'laosdirg-flux/integrations/react'
+
 import { navigate } from 'laosdirg-flux-router/actions'
 
 
 
-let TestElement = React.createClass({
+
+let MultiTestElement = React.createClass({
   render(){
     return <div>lol</div>
   }
 })
 
 
+class MultiTestFlux extends Flux(){
 
-window.addEventListener( 'DOMContentLoaded', event => {
-  React.render( React.createElement( TestElement ), document.getElementById( 'application2' ) )
-})
+}
+
+
+
+
+ReactIntegration.renderToDOM( MultiTestElement, MultiTestFlux )
