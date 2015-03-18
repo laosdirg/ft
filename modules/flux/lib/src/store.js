@@ -8,7 +8,7 @@ import { log, warn } from 'lib/shared/core/logger'
 
 import { autobind } from 'lib/shared/utils/autobind'
 
-export default class Store extends ChangeEmitter {
+export class Store extends ChangeEmitter {
 
   constructor( dispatcher ) {
     super()

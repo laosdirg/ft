@@ -6,7 +6,7 @@ import { CaseTypeStore } from '../stores/casetype_store'
 
 import Anchor from 'lib/vendor/routing/components/anchor.jsx!'
 
-import {FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 export const FilterListItem = React.createClass({
 

@@ -1,10 +1,6 @@
-import React from 'react'
 import { Context, renderToDOM } from '../lib/ft'
 
 import { navigate } from 'lib/vendor/routing/actions'
-
-// for dev tool support
-window.React = React
 
 // instantiate flux data layer (rehydrating from server-sent state)
 const context = new Context( )

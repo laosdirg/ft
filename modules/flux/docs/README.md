@@ -55,10 +55,3 @@ A laosdirg react ui component is renderable using a context prop that implements
    * waitFor(Store)
 
  * executeAction
-
-
-
-Flux implementation
-===================
-
-Should not depend on React

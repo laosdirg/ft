@@ -5,15 +5,23 @@ var watch = require('gulp-watch');
 var livereload = require('gulp-livereload');
 var fs = require('fs');
 var nodemon = require('gulp-nodemon')
+var exec = require('child_process').exec;
 
 gulp.task('develop', ['build'], function () {
   livereload.listen()
 
   nodemon({ script: 'bin/server.js', ext: 'html js jsx jade', ignore: ['dist/'] })
-    //.on('change', ['lint'])
     .on('restart', function () {
-      console.log('restarted!')
+      console.log('Restarted node server!')
     })
+
+  exec('cd modules/flux && jspm link github:laosdirg/flux@dev -y');
+  watch(['modules/flux/**/*'], function(){
+    console.log('Re-linking flux module')
+    exec('cd modules/flux && jspm link github:laosdirg/flux@dev -y', function(){
+      gulp.start('build')
+    });
+  })
 
   return watch(['bin/**/*.js', 'lib/**/*.js', 'lib/**/*.jsx'], function(){
     gulp.start('build');

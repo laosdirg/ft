@@ -1,7 +1,9 @@
-!dist/.gitignore
-dist/*
-jspm_packages
-node_modules
+/jspm_packages
+/node_modules
+
+!./dist/.gitignore
+/dist/*
+
 npm-debug.log
 ft.sublime-project
 ft.sublime-workspace

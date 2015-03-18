@@ -7,7 +7,7 @@ import { ActorStore } from '../stores/actor_store'
 
 import * as actorActions from '../actions'
 
-import {FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 //------------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ export const ActorsPage = React.createClass({
   },
 
   handleClick() {
-    this.action(actorActions.loadActors, 'MAIN', null, this.state.actors.size)
+    this.action(actorActions.loadActors, 'MAIN', null, this.state.actors.get('items').size)
   },
 
   render() {

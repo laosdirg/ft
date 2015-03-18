@@ -6,7 +6,7 @@ import App from 'lib/shared/core/components/app.jsx!'
 
 import { CasesStore } from '../stores/cases_store'
 
-import {FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 //------------------------------------------------------------------------------
 

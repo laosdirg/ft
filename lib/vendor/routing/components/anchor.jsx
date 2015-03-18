@@ -1,12 +1,22 @@
 import React from 'react'
 
-import {navigate} from '../actions'
+import { navigate } from '../actions'
 
-import {FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 export default React.createClass({
 
   mixins: [ FluxMixin ],
+
+  statics: {
+    stores: [],
+  },
+
+  getStateFromStores(){
+    return {
+      url: this.props.href
+    }
+  },
 
   handleClick( event ) {
     let { href, onClick } = this.props

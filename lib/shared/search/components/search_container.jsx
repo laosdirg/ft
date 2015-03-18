@@ -2,7 +2,7 @@ import React from 'react/addons'
 
 import * as actorActions from '../../actor/actions'
 import { ActorStore } from '../../actor/stores/actor_store'
-import {FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 
 import Typeahead from './typeahead.jsx!'
@@ -26,6 +26,8 @@ export const SearchContainer = React.createClass({
     if (this.state && this.state.query !== '') {
       return { actors: this.getStore(ActorStore).getList('SEARCH').update('items', list => list.map(this.getStore(ActorStore).get.bind(this.getStore(ActorStore))))
              }
+    } else {
+      return {}
     }
   },
 

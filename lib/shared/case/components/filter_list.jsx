@@ -4,7 +4,7 @@ import { CaseTypeStore } from '../stores/casetype_store'
 
 import FilterListItem from './filter_list_item.jsx!'
 
-import {FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 //------------------------------------------------------------------------------
 

@@ -8,7 +8,7 @@ import { RouteStore } from 'lib/vendor/routing/store'
 import {ActorsPage} from 'lib/shared/actor/components/actors_page.jsx!'
 import {CasesPage} from 'lib/shared/case/components/cases_page.jsx!'
 
-import {FluxWrapperMixin, FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 //------------------------------------------------------------------------------
 

@@ -1,0 +1,11 @@
+{
+  "jspm": {
+    "directories": {
+      "lib": "lib",
+      "packages": "jspm_packages"
+    },
+    "dependencies": {
+      "flux": "npm:flux@^2.0.1"
+    }
+  }
+}

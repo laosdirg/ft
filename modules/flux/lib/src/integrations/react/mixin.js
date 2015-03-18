@@ -1,3 +1,5 @@
+import { CONTEXT_TYPES } from './constants'
+
 import React from 'react'
 
 /*
@@ -12,20 +14,12 @@ contexts:
    - dispatch
 */
 
-const propTypes = {
-  flux: React.PropTypes.shape({
-    getStore: React.PropTypes.func,
-  }),
-}
+export const Mixin = {
 
+  // the mixin works only on a valid flux context
+  contextTypes: CONTEXT_TYPES,
 
-
-
-export const FluxMixin = {
-  propTypes: propTypes,
-
-  contextTypes: propTypes,
-
+  // return instance of given store
   getStore( Store ) {
     // TODO
     if (this.constructor.stores.indexOf(Store) < 0) {
@@ -35,10 +29,10 @@ export const FluxMixin = {
     return this.context.flux.getStore(Store)
   },
 
-  // For use in controller views
+  // execute action creator on dispatcher instance
   action( actionCreator, ...args ){
     actionCreator.apply(this.context.flux._actionContext, args)
-    
+
     return {
       then() {
         throw "Do not depend on action timings in components."
@@ -46,10 +40,9 @@ export const FluxMixin = {
     }
   },
 
-  // --
-
+  // Store listeners -----------------------------------------------------------
   getInitialState() {
-    if (!this.constructor.stores) return {}
+    if (!this.constructor.stores) return null
     return this.getStateFromStores()
   },
 
@@ -83,17 +76,5 @@ export const FluxMixin = {
     for (let key in stores) {
       this.getStore(stores[ key ]).removeChangeListener( this.handleStoreChanged )
     }
-  },
-}
-
-
-
-
-
-export const FluxWrapperMixin = {
-  childContextTypes: propTypes,
-
-  getChildContext() {
-    return {flux: this.props.flux}
   },
 }

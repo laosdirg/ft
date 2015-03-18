@@ -1,8 +1,10 @@
-import {Dispatcher} from './dispatcher'
+import { Dispatcher } from './src/dispatcher'
 
 import Immutable from 'immutable'
 
 //------------------------------------------------------------------------------
+
+export { Store } from './src/store'
 
 export class Flux {
   constructor(){
@@ -37,7 +39,7 @@ export class Flux {
   serialize() {
     let dehydrated = {}
     this._stores.forEach(( store, name ) => {
-      //dehydrated[key] = store.state.toJS()
+      dehydrated[name] = store.state.toJS()
     })
 
     return dehydrated

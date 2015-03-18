@@ -13,10 +13,12 @@ System.config({
 System.config({
   "map": {
     "crossroads": "npm:crossroads@0.12.0",
-    "flux": "npm:flux@2.0.1",
+    "flux": "github:laosdirg/flux@dev",
     "hasher": "npm:hasher@1.2.0",
     "immutable": "npm:immutable@3.6.2",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
+    "laosdirg-flux": "github:laosdirg/flux@dev",
+    "laosdirg/flux": "github:laosdirg/flux@dev",
     "react": "npm:react@0.13.0",
     "github:floatdrop/plugin-jsx@0.1.1": {
       "react-tools": "npm:react-tools@0.12.2"
@@ -67,6 +69,9 @@ System.config({
     },
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
+    },
+    "github:laosdirg/flux@dev": {
+      "flux": "npm:flux@2.0.1"
     },
     "npm:amdefine@0.1.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.1",

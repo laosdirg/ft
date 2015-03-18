@@ -1,3 +1,5 @@
+import { CONTEXT_TYPES } from './constants'
+
 import React from 'react'
 
 //------------------------------------------------------------------------------
@@ -16,8 +18,4 @@ export class Component extends React.Component {
 
 }
 
-Component.childContextTypes = {
-  flux: React.PropTypes.shape({
-    getStore: React.PropTypes.func,
-  }),
-}
+Component.childContextTypes = CONTEXT_TYPES

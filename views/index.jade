@@ -13,8 +13,9 @@ html
 
     script(type='text/javascript').
       System.config({baseURL: '/'})
-      System.import('bin/browser')
       System.import('react').then(function(React) {
         window.React = React;
       })
       window.__DEV__ = true
+      
+      System.import('bin/browser')

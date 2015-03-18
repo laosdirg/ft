@@ -6,7 +6,7 @@ import { ActorTypeStore } from '../stores/actor_type_store'
 import App from 'lib/shared/core/components/app.jsx!'
 import ActorList from './actor_list.jsx!'
 
-import {FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 import { Anchor } from 'lib/vendor/route/components/anchor.jsx!'
 

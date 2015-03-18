@@ -4,7 +4,7 @@ import { ActorTypeStore } from '../stores/actor_type_store'
 import { ActorFilterStore } from '../stores/actor_filter_store'
 
 import FilterListItem from './filter_list_item.jsx!'
-import {FluxMixin} from 'lib/vendor/flux/mixin'
+import { Mixin as FluxMixin } from 'laosdirg-flux/integrations/react'
 
 //------------------------------------------------------------------------------
 
@@ -27,8 +27,8 @@ export const FilterList = React.createClass({
     return (
       <div>
         <div>
-          {this.state.filters.map( filter => {
-            return <span>{ filter }</span>
+          {this.state.filters.map( (filter, i) => {
+            return <span key={i}>{ filter }</span>
           })}
         </div>
         <ol>
